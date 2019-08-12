@@ -57,6 +57,8 @@ class CatiTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "LabelCell", for: indexPath)
 
         cell.textLabel?.text = allCities[indexPath.row].title
+        cell.detailTextLabel?.text = allCities[indexPath.row].text
+        cell.imageView?.image = UIImage(named: allCities[indexPath.row].image)
 
         return cell
         
