@@ -8,7 +8,27 @@
 
 import UIKit
 
+struct Cities{
+    var id : Int
+    var title : String
+    var text : String
+    var image : String
+}
+
 class CatiTableViewController: UITableViewController {
+    var allCities = [
+        Cities(id: 1,
+               title: "New York City",
+                text: "NYC is famous all throughout the world. Many people come to visit.",
+                image: "new york city skyline"),
+        Cities(id: 2, title: "London",
+                      text: "London is in England! There are many historical buildings.",
+                      image: "london waterloo"),
+        Cities(id: 3,
+               title: "Edinburgh",
+               text: "Edinburgh is the capital of Scotland. Throughout August, they have a huge music festival and the population of the city doubles.",
+               image: "edinburgh castle")
+    ]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,19 +44,19 @@ class CatiTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 3
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 5
+        return allCities.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "LabelCell", for: indexPath)
 
-        cell.textLabel?.text = "Section \(indexPath.section) Row \(indexPath.row)"
+        cell.textLabel?.text = allCities[indexPath.row].title
 
         return cell
         
